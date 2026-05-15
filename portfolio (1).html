@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name · Content Creator & Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --warm-white: #FDFCFA;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-muted: #8C857D;
+    --accent: #C8553D;
+    --accent-light: #F0DDD8;
+    --accent-dark: #8B3525;
+    --gold: #B8960C;
+    --gold-light: #F5EEC4;
+    --border: rgba(26,23,20,0.12);
+    --border-soft: rgba(26,23,20,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(247,244,239,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; color: var(--ink-soft);
+    text-decoration: none; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 3rem; max-width: 900px; margin: 0 auto; }
+  section:first-of-type { padding-top: 8rem; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 90vh; display: flex; flex-direction: column;
+    justify-content: center; padding-top: 7rem; padding-bottom: 3rem;
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    border: 0.5px solid var(--accent); border-radius: 2rem;
+    padding: 5px 14px; margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-bio {
+    font-size: 18px; font-weight: 300; color: var(--ink-soft);
+    max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-cta-row {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    border-radius: 2rem; padding: 12px 24px; transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--ink); border: 0.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .hero-scroll {
+    margin-top: 4rem; font-size: 12px; color: var(--ink-muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .scroll-line { width: 40px; height: 0.5px; background: var(--ink-muted); }
+
+  /* ── ABOUT / EDUCATION ── */
+  #about { border-top: 0.5px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2.5rem; }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 1.5rem;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+  .about-text { font-size: 15px; color: var(--ink-soft); line-height: 1.8; }
+  .edu-card {
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    border-radius: 1rem; padding: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--accent);
+  }
+  .edu-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-light); border-radius: 2rem;
+    padding: 3px 10px; display: inline-block; margin-bottom: 0.75rem;
+  }
+  .edu-degree { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 4px; }
+  .edu-school { font-size: 14px; color: var(--ink-muted); }
+  .edu-detail { font-size: 13px; color: var(--ink-muted); margin-top: 0.5rem; }
+
+  /* ── PLATFORMS & METRICS ── */
+  #metrics { border-top: 0.5px solid var(--border); }
+  .metrics-intro { font-size: 15px; color: var(--ink-soft); max-width: 480px; margin-top: 0.5rem; margin-bottom: 3rem; line-height: 1.8; }
+  .platform-block { margin-bottom: 3rem; }
+  .platform-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.25rem;
+  }
+  .platform-pill {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+    padding: 5px 14px; border-radius: 2rem;
+  }
+  .pill-ig { background: #F5E6F0; color: #8B2252; }
+  .pill-tk { background: #E8E6F5; color: #2D2580; }
+  .platform-handle { font-size: 14px; color: var(--ink-muted); }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-card {
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    border-radius: 0.875rem; padding: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--ink); line-height: 1; margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; }
+  .insight-note {
+    margin-top: 0.75rem; font-size: 12px; color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── VIRAL CONTENT ── */
+  #content { border-top: 0.5px solid var(--border); }
+  .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .reel-card {
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    border-radius: 1rem; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none; color: inherit;
+  }
+  .reel-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .reel-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .reel-platform {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 2rem;
+  }
+  .reel-views {
+    font-size: 12px; color: var(--ink-muted);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .reel-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--ink); line-height: 1.3; }
+  .reel-meta { display: flex; gap: 12px; }
+  .reel-stat-chip {
+    font-size: 11px; color: var(--ink-muted);
+    background: var(--cream); border-radius: 2rem;
+    padding: 3px 10px; border: 0.5px solid var(--border);
+  }
+  .reel-link {
+    font-size: 12px; color: var(--accent); font-weight: 500;
+    display: flex; align-items: center; gap: 4px;
+    margin-top: auto;
+  }
+  .featured {
+    grid-column: span 2;
+    background: var(--ink); border-color: transparent;
+  }
+  .featured .reel-title { color: var(--cream); }
+  .featured .reel-views { color: rgba(247,244,239,0.5); }
+  .featured .reel-stat-chip { background: rgba(255,255,255,0.08); color: rgba(247,244,239,0.6); border-color: rgba(255,255,255,0.1); }
+  .featured .reel-link { color: #F0A090; }
+  .featured-badge {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-light);
+    background: var(--accent); border-radius: 2rem;
+    padding: 3px 10px;
+  }
+
+  /* ── CONTACT ── */
+  #contact { border-top: 0.5px solid var(--border); }
+  .contact-inner {
+    background: var(--ink); border-radius: 1.5rem;
+    padding: 3rem; text-align: center; margin-top: 2rem;
+  }
+  .contact-inner h2 { color: var(--cream); margin-bottom: 1rem; }
+  .contact-inner p { color: rgba(247,244,239,0.6); font-size: 15px; margin-bottom: 2rem; }
+  .contact-email {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--cream);
+    text-decoration: none; border-bottom: 0.5px solid rgba(247,244,239,0.3);
+    padding-bottom: 2px; transition: border-color 0.2s;
+  }
+  .contact-email:hover { border-color: var(--cream); }
+  .social-row { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+  .social-chip {
+    font-size: 13px; font-weight: 500; padding: 9px 20px;
+    border-radius: 2rem; border: 0.5px solid rgba(247,244,239,0.2);
+    color: var(--cream); text-decoration: none; transition: all 0.2s;
+  }
+  .social-chip:hover { background: rgba(247,244,239,0.1); border-color: rgba(247,244,239,0.5); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2rem 3rem;
+    font-size: 12px; color: var(--ink-muted);
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .content-grid { grid-template-columns: 1fr; }
+    .featured { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Your Name</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#metrics">Insights</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-label"><span class="hero-dot"></span> Open to opportunities</div>
+  <h1>Content <em>creator</em><br>& marketer.</h1>
+  <p class="hero-bio">Marketing & Public Relations graduate with a passion for wellness brands and scroll-stopping content. I turn brand stories into viral moments.</p>
+  <div class="hero-cta-row">
+    <a href="#content" class="btn btn-primary">View my content ↓</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-scroll"><span class="scroll-line"></span> Scroll to explore</div>
+</section>
+
+<!-- HIGHLIGHT STATS BAR -->
+<div style="border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--warm-white);">
+  <div style="max-width: 900px; margin: 0 auto; padding: 2rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+    <div>
+      <p style="font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--accent); line-height: 1;">7-Figure</p>
+      <p style="font-size: 13px; color: var(--ink-muted); margin-top: 6px;">Health & wellness business built from scratch</p>
+    </div>
+    <div style="border-left: 0.5px solid var(--border); border-right: 0.5px solid var(--border);">
+      <p style="font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--accent); line-height: 1;">3 Years</p>
+      <p style="font-size: 13px; color: var(--ink-muted); margin-top: 6px;">Social media coaching experience</p>
+    </div>
+    <div>
+      <p style="font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--accent); line-height: 1;">2M+</p>
+      <p style="font-size: 13px; color: var(--ink-muted); margin-top: 6px;">Organic views across platforms</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT / EDUCATION -->
+<section id="about">
+  <p class="section-eyebrow">Background</p>
+  <div class="about-grid">
+    <div>
+      <h2>Built brands.<br><em>Scaled results.</em></h2>
+      <p class="about-text">I'm not just a content creator — I'm a marketer who has built a 7-figure business from the ground up, coached others to grow their own audiences, and consistently created content that reaches hundreds of thousands of people organically. I understand brand positioning, consumer psychology, and what actually makes people stop scrolling.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="edu-card reveal">
+        <span class="edu-tag">Education</span>
+        <p class="edu-degree">B.S. Marketing & Public Relations</p>
+        <p class="edu-school">Your University Name · Class of 20XX</p>
+        <p class="edu-detail">Brand strategy, consumer behavior, digital marketing, media relations & campaign management.</p>
+      </div>
+      <div class="edu-card reveal">
+        <span class="edu-tag" style="background: var(--gold-light); color: var(--gold);">Business</span>
+        <p class="edu-degree">7-Figure Health & Wellness Brand</p>
+        <p class="edu-school">Brick & mortar business · Founded & scaled</p>
+        <p class="edu-detail">Built and grew a health and wellness business to 7 figures, managing brand, marketing, and customer growth end-to-end.</p>
+      </div>
+      <div class="edu-card reveal">
+        <span class="edu-tag" style="background: #E8F5E8; color: #2A6B2A;">Coaching</span>
+        <p class="edu-degree">Social Media Coach · 3 Years</p>
+        <p class="edu-school">1:1 & group coaching</p>
+        <p class="edu-detail">Helped clients build and grow their social media presence, develop content strategy, and increase engagement organically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <p class="section-eyebrow">Social media insights</p>
+  <h2>Real reach.<br><em>Real engagement.</em></h2>
+  <p class="metrics-intro">Organic growth across two platforms with above-average engagement rates. All data pulled directly from platform analytics.</p>
+
+  <div class="platform-block reveal">
+    <div class="platform-header">
+      <span class="platform-pill pill-ig">Instagram</span>
+      <span class="platform-handle">@yourhandle</span>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">42K</div>
+        <div class="stat-label">Followers</div>
+        <div class="insight-note">↑ 18% last 90 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8.3%</div>
+        <div class="stat-label">Avg engagement rate</div>
+        <div class="insight-note">3× industry avg</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1.2M</div>
+        <div class="stat-label">Reel plays (90 days)</div>
+        <div class="insight-note">Peak: 500K single reel</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block reveal">
+    <div class="platform-header">
+      <span class="platform-pill pill-tk">TikTok</span>
+      <span class="platform-handle">@yourhandle</span>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">28K</div>
+        <div class="stat-label">Followers</div>
+        <div class="insight-note">↑ 24% last 90 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">11.4%</div>
+        <div class="stat-label">Avg engagement rate</div>
+        <div class="insight-note">4× platform avg</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">890K</div>
+        <div class="stat-label">Video views (90 days)</div>
+        <div class="insight-note">Peak: 300K single video</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRAL CONTENT -->
+<section id="content">
+  <p class="section-eyebrow">Content highlights</p>
+  <h2>Work that <em>performed.</em></h2>
+
+  <div class="content-grid">
+
+    <!-- Featured -->
+    <a href="#" class="reel-card featured reveal">
+      <div class="reel-top">
+        <span class="featured-badge">Top performer</span>
+        <div class="reel-views">👁 500K views</div>
+      </div>
+      <p class="reel-title">Your Best Performing Reel Title Goes Here — Replace With the Real One</p>
+      <div class="reel-meta">
+        <span class="reel-stat-chip">Instagram Reel</span>
+        <span class="reel-stat-chip">48K likes</span>
+        <span class="reel-stat-chip">2.1K saves</span>
+      </div>
+      <span class="reel-link">Watch on Instagram →</span>
+    </a>
+
+    <a href="#" class="reel-card reveal">
+      <div class="reel-top">
+        <span class="platform-pill pill-tk" style="font-size:11px; padding:3px 10px;">TikTok</span>
+        <div class="reel-views">👁 300K views</div>
+      </div>
+      <p class="reel-title">Second Best Video Title — Replace With the Real One</p>
+      <div class="reel-meta">
+        <span class="reel-stat-chip">22K likes</span>
+        <span class="reel-stat-chip">980 shares</span>
+      </div>
+      <span class="reel-link">Watch on TikTok →</span>
+    </a>
+
+    <a href="#" class="reel-card reveal">
+      <div class="reel-top">
+        <span class="platform-pill pill-ig" style="font-size:11px; padding:3px 10px;">Instagram</span>
+        <div class="reel-views">👁 200K views</div>
+      </div>
+      <p class="reel-title">Third Reel Title — Replace With the Real One</p>
+      <div class="reel-meta">
+        <span class="reel-stat-chip">17K likes</span>
+        <span class="reel-stat-chip">1.4K saves</span>
+      </div>
+      <span class="reel-link">Watch on Instagram →</span>
+    </a>
+
+    <a href="#" class="reel-card reveal">
+      <div class="reel-top">
+        <span class="platform-pill pill-tk" style="font-size:11px; padding:3px 10px;">TikTok</span>
+        <div class="reel-views">👁 150K views</div>
+      </div>
+      <p class="reel-title">Fourth Video Title — Replace With the Real One</p>
+      <div class="reel-meta">
+        <span class="reel-stat-chip">11K likes</span>
+        <span class="reel-stat-chip">430 shares</span>
+      </div>
+      <span class="reel-link">Watch on TikTok →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Let's connect</p>
+  <div class="contact-inner reveal">
+    <h2>Interested in<br><em>working together?</em></h2>
+    <p>I'd love to talk about how I can help grow your brand's presence.</p>
+    <a href="mailto:your@email.com" class="contact-email">your@email.com</a>
+    <div class="social-row">
+      <a href="https://instagram.com/yourhandle" class="social-chip" target="_blank">Instagram ↗</a>
+      <a href="https://tiktok.com/@yourhandle" class="social-chip" target="_blank">TikTok ↗</a>
+      <a href="https://linkedin.com/in/yourhandle" class="social-chip" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Your Name · Portfolio</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
