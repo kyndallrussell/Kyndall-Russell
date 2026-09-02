@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyndall Russell · Instagram Growth Coach</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+
+    header {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    em {
+      font-style: italic;
+      color: #666;
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #1a1a1a;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .tagline {
+      font-size: 20px;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: #1a1a1a;
+      border: 1px solid #1a1a1a;
+      padding: 0.75rem 1.5rem;
+      font-size: 14px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .btn.primary {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background: white;
+      color: #1a1a1a;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .content-card {
+      border: 1px solid #e0e0e0;
+      padding: 2rem;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-stat {
+      margin-bottom: 1rem;
+    }
+
+    .card-stat-number {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .card-stat-label {
+      font-size: 13px;
+      color: #999;
+      margin-top: 0.25rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 1rem 0;
+    }
+
+    .audience-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .audience-list li {
+      padding: 0.75rem 0;
+      font-size: 14px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .audience-list li:last-child {
+      border-bottom: none;
+    }
+
+    .audience-list li:before {
+      content: "→ ";
+      margin-right: 0.5rem;
+      color: #999;
+    }
+
+    .offering {
+      border-left: 3px solid #1a1a1a;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .offering h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .offering p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .contact-section {
+      background: #f5f5f5;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      font-size: 14px;
+    }
+
+    .contact-info a {
+      color: #1a1a1a;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: #999;
+      margin-top: 4rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        display: block;
+        text-align: center;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#personal">Personal</a>
+      <a href="#audience">Audience</a>
+      <a href="#content">Content</a>
+      <a href="#partnerships">Partnerships</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+    <h1>Instagram *growth* coach.</h1>
+    
+    <p class="tagline">I help individuals and small businesses build authentic audiences. Real strategies, real engagement, real results—no BS tactics.</p>
+    
+    <div class="cta-buttons">
+      <a href="#contact" class="btn primary">Get in touch ↓</a>
+      <a href="#content" class="btn">View my content ↓</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>Built to *scale.*</h2>
+      
+      <p style="font-size: 16px; line-height: 1.8; margin-bottom: 2rem;">I've spent years teaching people how to grow, engage, and monetize their Instagram presence. My strategies are rooted in understanding psychology, platform algorithms, and what actually resonates with audiences. I don't do vanity metrics—I focus on real growth and real engagement.</p>
+
+      <div class="grid-2">
+        <div>
+          <h3>My Background</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.8;">Marketing & Public Relations graduate with a track record of building 7-figure businesses and scaling organic social media presence. Four years of direct coaching experience helping clients grow their audiences from zero to millions of impressions.</p>
+        </div>
+        <div>
+          <h3>My Approach</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.8;">Strategy over trends. Authenticity over algorithms. I teach sustainable growth that sticks, not gimmicks that fade. My audience is smart and accomplished—they can tell when something's real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Section -->
+    <section id="personal">
+      <h2>Life *beyond* the feed.</h2>
+      
+      <p style="color: #666; margin-bottom: 2rem;">My content isn't just about Instagram growth—it's about real life. I'm a blended family mom navigating the beautiful chaos of raising kids, traveling, and building a life that actually matters.</p>
+
+      <div class="grid-2">
+        <div>
+          <h3>Family & Parenting</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.8;">Blended family life is messy, honest, and real. I share the everyday moments that matter—the wins, the struggles, and everything in between. My audience connects with content that shows what life actually looks like when you're juggling careers, kids, and personal growth.</p>
+        </div>
+        <div>
+          <h3>Travel & Adventure</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.8;">We love exploring new places—whether it's road trips with the kids or family getaways. I create content around travel experiences, family adventures, and the lessons we learn along the way. These moments resonate deeply with my audience.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">What This Means for Your Brand</h3>
+      <p style="font-size: 14px; color: #666; line-height: 1.8;">My audience trusts me because I'm authentic. They see me as a real person—a mom, an entrepreneur, a traveler—not just a content creator. When I recommend a product or partnership, it comes from a place of genuine belief. This authenticity is what makes my recommendations stick.</p>
+    </section>
+
+    <!-- Key Stats -->
+    <section>
+      <h2>Real *reach.*</h2>
+      <p style="color: #666; margin-bottom: 2rem;">Organic growth across multiple platforms with well above-average engagement.</p>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <h3>Instagram @kyndallruss</h3>
+          <div class="card-stat">
+            <div class="card-stat-number">2M+</div>
+            <div class="card-stat-label">Monthly Views</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-number">1.2K+</div>
+            <div class="card-stat-label">New Followers (30 days)</div>
+          </div>
+          <div class="divider"></div>
+          <div class="card-stat">
+            <div class="card-stat-number">8.4K</div>
+            <div class="card-stat-label">Profile Visits Monthly</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-number">169.6K</div>
+            <div class="card-stat-label">Total Interactions</div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h3>My Audience</h3>
+          <ul class="audience-list">
+            <li><strong>88.6%</strong> women, <strong>11.4%</strong> men</li>
+            <li><strong>Primary age:</strong> 35-44 (44.7%)</li>
+            <li><strong>Secondary:</strong> 25-34 & 45-54</li>
+            <li><strong>Location:</strong> 75.7% US-based</li>
+            <li><strong>Type:</strong> Professionals, entrepreneurs, parents</li>
+            <li style="border: none;">Smart. Action-oriented. Engaged.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="content">
+      <h2>Content that *performs.*</h2>
+      
+      <p style="color: #666; margin-bottom: 2rem;">Here's what actually works—backed by real analytics from my recent content across all formats.</p>
+
+      <div class="content-grid">
+        <div class="content-card">
+          <h3>Reels</h3>
+          <div class="card-stat">
+            <div class="card-stat-number">170K</div>
+            <div class="card-stat-label">Interactions</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-number">2M</div>
+            <div class="card-stat-label">Monthly Views</div>
+          </div>
+          <div class="divider"></div>
+          <div class="card-stat">
+            <div class="card-stat-number">6.8M</div>
+            <div class="card-stat-label">Top Performing Reel</div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h3>Stories</h3>
+          <div class="card-stat">
+            <div class="card-stat-number">45</div>
+            <div class="card-stat-label">Daily Posts</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-number">2K+</div>
+            <div class="card-stat-label">Views Per Story Set</div>
+          </div>
+          <div class="divider"></div>
+          <p style="font-size: 13px; color: #666;">Real-life moments from daily life, family, and travel. Keeps brand top-of-mind.</p>
+        </div>
+
+        <div class="content-card">
+          <h3>Feed Posts</h3>
+          <div class="card-stat">
+            <div class="card-stat-number">3.2M</div>
+            <div class="card-stat-label">Top Post Views</div>
+          </div>
+          <div class="divider"></div>
+          <p style="font-size: 13px; color: #666;">Selective. High-quality. Drives profile visits and bio clicks.</p>
+        </div>
+
+        <div class="content-card">
+          <h3>What Resonates</h3>
+          <div class="divider"></div>
+          <ul class="audience-list" style="margin: 1rem 0 0 0;">
+            <li>Personal stories & advice</li>
+            <li>Family & parenting moments</li>
+            <li>Travel experiences</li>
+            <li>Behind-the-scenes content</li>
+            <li>Product features</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">Content Creation Philosophy</h3>
+      <p style="font-size: 14px; color: #666; line-height: 1.8;">I create content that tells a story. Whether it's about building a business, navigating blended family life, or discovering a new travel destination, I focus on authenticity over perfection. My audience responds to genuine moments—the real wins and the real struggles. This is what makes sponsored content effective when I partner with brands.</p>
+    </section>
+
+    <!-- Brand Fit Section -->
+    <section id="partnerships">
+      <h2>Partnership *options.*</h2>
+      
+      <p style="color: #666; margin-bottom: 2rem;">I only work with brands I believe in. Your product needs to solve a real problem or bring real joy. My audience can tell when something's authentic.</p>
+
+      <h3>Ideal Partners</h3>
+      <p style="font-size: 14px; color: #666; margin-bottom: 2rem;">Wellness · Longevity · Personal Development · Business Tools · Productivity · Luxury Lifestyle · Financial Services · Family Products · Travel & Adventure · SaaS</p>
+
+      <h3>What I Offer</h3>
+      
+      <div class="offering">
+        <h4>Sponsored Reels</h4>
+        <p>Authentic storytelling with your product. 2M+ monthly reach. Perfect for brand awareness and product launches.</p>
+      </div>
+
+      <div class="offering">
+        <h4>Feed Posts</h4>
+        <p>Curated, high-quality posts that last. Drives profile visits & bio clicks. Higher engagement than stories.</p>
+      </div>
+
+      <div class="offering">
+        <h4>Stories</h4>
+        <p>Daily real-life integration. Keeps your brand top-of-mind with consistent, authentic touchpoints throughout my week.</p>
+      </div>
+
+      <div class="offering">
+        <h4>Affiliate Partnerships</h4>
+        <p>Sales-driven. You pay for results, not just impressions. Trackable conversions and ROI.</p>
+      </div>
+
+      <div class="offering">
+        <h4>Content Collaboration</h4>
+        <p>Custom ideas that actually resonate with my community. Co-created content that integrates naturally into my life and my audience's feeds.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+      <h2>Interested in *working together?*</h2>
+      <p style="font-size: 16px; margin-bottom: 1rem;">Let's hop on a call and figure out if we're a good fit.</p>
+      <p style="font-size: 14px; color: #666;">I'm looking for partners who value authenticity and want real results.</p>
+      
+      <div class="contact-info">
+        <p><a href="https://instagram.com/kyndallruss" target="_blank">Instagram ↗</a></p>
+        <p><a href="https://www.tiktok.com/@kyndallrussell" target="_blank">TikTok ↗</a></p>
+        <p><a href="mailto:collabwithkyndall@gmail.com">collabwithkyndall@gmail.com</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Kyndall Russell · Instagram Growth Coach
+  </footer>
+</body>
+</html>
